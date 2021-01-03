@@ -1,0 +1,26 @@
+From 15f427adbfd93cb544e2b416d75ee37e96575069 Mon Sep 17 00:00:00 2001
+From: Alexander Jung <a.jung@lancs.ac.uk>
+Date: Sun, 3 Jan 2021 20:15:57 +0100
+Subject: [PATCH] Fix duplicate import of netinet/tcp.h
+
+Signed-off-by: Alexander Jung <a.jung@lancs.ac.uk>
+---
+ src/iperf_api.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/iperf_api.c b/src/iperf_api.c
+index 88fed30..2f4d3d8 100644
+--- a/src/iperf_api.c
++++ b/src/iperf_api.c
+@@ -49,7 +49,7 @@
+ #ifdef HAVE_STDINT_H
+ #include <stdint.h>
+ #endif
+-#include <netinet/tcp.h>
++// #include <netinet/tcp.h>
+ #include <sys/time.h>
+ #include <sys/resource.h>
+ #include <sys/mman.h>
+-- 
+2.20.1
+
