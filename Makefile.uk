@@ -67,6 +67,9 @@ LIBIPERF3_FLAGS_SUPPRESS =
 LIBIPERF3_CFLAGS-y += $(LIBIPERF3_FLAGS)
 LIBIPERF3_CFLAGS-y += $(LIBIPERF3_FLAGS_SUPPRESS)
 
+# Rename the main function found in src/main.c to iperf3_main
+LIBIPERF3_IPERF3_FLAGS-y += -Dmain=iperf3_main
+
 ################################################################################
 # Glue code
 ################################################################################
