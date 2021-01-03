@@ -49,7 +49,7 @@ $(eval $(call fetch,libiperf3,$(LIBIPERF3_URL)))
 ################################################################################
 # Helpers
 ################################################################################
-LIBIPERF3_SRC = $(LIBIPERF3_ORIGIN)/$(LIBIPERF3_SUBDIR)
+LIBIPERF3_SRC = $(LIBIPERF3_ORIGIN)/$(LIBIPERF3_SUBDIR)/src
 
 ################################################################################
 # Library includes
