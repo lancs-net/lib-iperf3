@@ -41,7 +41,7 @@ $(eval $(call addlib_s,libiperf3,$(CONFIG_LIBIPERF3)))
 ################################################################################
 LIBIPERF3_VERSION = 3.9
 LIBIPERF3_URL = https://github.com/esnet/iperf/archive/$(LIBIPERF3_VERSION).zip
-LIBIPERF3_SUBDIR = iperf3-$(LIBIPERF3_VERSION)
+LIBIPERF3_SUBDIR = iperf-$(LIBIPERF3_VERSION)
 LIBIPERF3_PATCHDIR = $(LIBIPERF3_BASE)/patches
 $(eval $(call patch,libiperf3,$(LIBIPERF3_PATCHDIR),$(LIBIPERF3_SUBDIR)))
 $(eval $(call fetch,libiperf3,$(LIBIPERF3_URL)))
