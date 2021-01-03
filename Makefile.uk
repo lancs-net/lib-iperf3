@@ -81,4 +81,21 @@ LIBIPERF3SRCS-$(CONFIG_LIBIPERF3_MAIN_FUNCTION) += $(LIBIPERF3_BASE)/main.c|unik
 ################################################################################
 # Library sources
 ################################################################################
-# LIBIPERF3_SRCS-y += # Include source files here
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/main.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/cjson.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_api.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_error.c
+# LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_auth.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_client_api.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_locale.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_server_api.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_tcp.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_udp.c
+# LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_sctp.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_util.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/iperf_time.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/dscp.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/net.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/tcp_info.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/timer.c
+LIBIPERF3_SRCS-y += $(LIBIPERF3_SRC)/units.c
