@@ -1,0 +1,10 @@
+menuconfig LIBIPERF3
+	bool "iperf3: A TCP, UDP, and SCTP network bandwidth measurement tool "
+	default n
+
+if LIBIPERF3
+config LIBIPERF3_MAIN_FUNCTION
+	bool "Provide main function"
+	default n
+
+endif

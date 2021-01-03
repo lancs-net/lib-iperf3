@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: BSD-3-Clause
+#
+# iperf3: A TCP, UDP, and SCTP network bandwidth measurement tool 
+#
+# Authors: Alexander Jung <a.jung@lancs.ac.uk>
+#
+# Copyright (c) 2021, Lancaster University. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 3. Neither the name of the copyright holder nor the names of its
+#    contributors may be used to endorse or promote products derived from
+#    this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+################################################################################
+# Library registration
+################################################################################
+$(eval $(call addlib_s,libiperf3,$(CONFIG_LIBIPERF3)))
+
+################################################################################
+# Sources
+################################################################################
+LIBIPERF3_VERSION = 3.9
+LIBIPERF3_URL = https://github.com/esnet/iperf/archive/$(LIBIPERF3_VERSION).zip
+LIBIPERF3_SUBDIR = iperf3-$(LIBIPERF3_VERSION)
+LIBIPERF3_PATCHDIR = $(LIBIPERF3_BASE)/patches
+$(eval $(call patch,libiperf3,$(LIBIPERF3_PATCHDIR),$(LIBIPERF3_SUBDIR)))
+$(eval $(call fetch,libiperf3,$(LIBIPERF3_URL)))
+
+################################################################################
+# Helpers
+################################################################################
+LIBIPERF3_SRC = $(LIBIPERF3_ORIGIN)/$(LIBIPERF3_SUBDIR)
+
+################################################################################
+# Library includes
+################################################################################
+CINCLUDES-y += -I$(LIBIPERF3_BASE)/include
+
+################################################################################
+# Flags
+################################################################################
+LIBIPERF3_FLAGS =
+
+# Suppress some warnings to make the build process look neater
+LIBIPERF3_FLAGS_SUPPRESS =
+
+LIBIPERF3_CFLAGS-y += $(LIBIPERF3_FLAGS)
+LIBIPERF3_CFLAGS-y += $(LIBIPERF3_FLAGS_SUPPRESS)
+
+################################################################################
+# Glue code
+################################################################################
+# Include paths
+# LIBIPERF3_CINCLUDES-y   += $(LIBIPERF3_COMMON_INCLUDES-y)
+# LIBIPERF3_CXXINCLUDES-y += $(LIBIPERF3_COMMON_INCLUDES-y)
+LIBIPERF3SRCS-$(CONFIG_LIBIPERF3_MAIN_FUNCTION) += $(LIBIPERF3_BASE)/main.c|unikraft
+
+################################################################################
+# Library sources
+################################################################################
+# LIBIPERF3_SRCS-y += # Include source files here
