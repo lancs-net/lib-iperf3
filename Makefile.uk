@@ -73,9 +73,6 @@ LIBIPERF3_IPERF3_FLAGS-y += -Dmain=iperf3_main
 ################################################################################
 # Glue code
 ################################################################################
-# Include paths
-# LIBIPERF3_CINCLUDES-y   += $(LIBIPERF3_COMMON_INCLUDES-y)
-# LIBIPERF3_CXXINCLUDES-y += $(LIBIPERF3_COMMON_INCLUDES-y)
 LIBIPERF3SRCS-$(CONFIG_LIBIPERF3_MAIN_FUNCTION) += $(LIBIPERF3_BASE)/main.c|unikraft
 
 ################################################################################
