@@ -62,7 +62,10 @@ CINCLUDES-y += -I$(LIBIPERF3_BASE)/include
 LIBIPERF3_FLAGS =
 
 # Suppress some warnings to make the build process look neater
-LIBIPERF3_FLAGS_SUPPRESS =
+LIBIPERF3_FLAGS_SUPPRESS = -Wno-unused-parameter \
+                           -Wno-unused-variable \
+                           -Wno-sign-compare \
+                           -Wno-implicit-fallthrough
 
 LIBIPERF3_CFLAGS-y += $(LIBIPERF3_FLAGS)
 LIBIPERF3_CFLAGS-y += $(LIBIPERF3_FLAGS_SUPPRESS)
