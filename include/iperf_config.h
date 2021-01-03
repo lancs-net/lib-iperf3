@@ -11,7 +11,7 @@
 #define HAVE_CPU_AFFINITY 1
 
 /* Define to 1 if you have the `daemon' function. */
-#define HAVE_DAEMON 1
+// #define HAVE_DAEMON 1
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
@@ -20,7 +20,7 @@
 #define HAVE_ENDIAN_H 1
 
 /* Have IPv6 flowlabel support. */
-#define HAVE_FLOWLABEL 1
+// #define HAVE_FLOWLABEL 1
 
 /* Define to 1 if you have the `getline' function. */
 #define HAVE_GETLINE 1
@@ -38,19 +38,19 @@
 #define HAVE_POLL_H 1
 
 /* Define to 1 if you have the `sched_setaffinity' function. */
-#define HAVE_SCHED_SETAFFINITY 1
+// #define HAVE_SCHED_SETAFFINITY 0
 
 /* Have SCTP support. */
 /* #undef HAVE_SCTP_H */
 
 /* Define to 1 if you have the `sendfile' function. */
-#define HAVE_SENDFILE 1
+// #define HAVE_SENDFILE 1
 
 /* Define to 1 if you have the `SetProcessAffinityMask' function. */
 /* #undef HAVE_SETPROCESSAFFINITYMASK */
 
 /* Have SO_MAX_PACING_RATE sockopt. */
-#define HAVE_SO_MAX_PACING_RATE 1
+// #define HAVE_SO_MAX_PACING_RATE 1
 
 /* OpenSSL Is Available */
 /* #undef HAVE_SSL */
@@ -83,7 +83,7 @@
 #define HAVE_SYS_TYPES_H 1
 
 /* Have TCP_CONGESTION sockopt. */
-#define HAVE_TCP_CONGESTION 1
+// #define HAVE_TCP_CONGESTION 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #define HAVE_UNISTD_H 1
