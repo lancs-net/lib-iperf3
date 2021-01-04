@@ -1,0 +1,30 @@
+From 16c0d2173ce6c41e16026a5206ea5607fd913ae9 Mon Sep 17 00:00:00 2001
+From: Alexander Jung <a.jung@lancs.ac.uk>
+Date: Mon, 4 Jan 2021 01:21:57 +0100
+Subject: [PATCH] Set the temp path to the root.
+
+This fixes mkstemp's inability to write to /tmp directory as it
+does not exist.  Instead, the mitigation is to write simply to the
+root fs, /.
+
+Signed-off-by: Alexander Jung <a.jung@lancs.ac.uk>
+---
+ src/iperf_api.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/iperf_api.c b/src/iperf_api.c
+index 88fed30..d5cca6a 100644
+--- a/src/iperf_api.c
++++ b/src/iperf_api.c
+@@ -3840,7 +3840,7 @@ iperf_new_stream(struct iperf_test *test, int s, int sender)
+             tempdir = getenv("TMP");
+         }
+         if (tempdir == 0){
+-            tempdir = "/tmp";
++            tempdir = "";
+         }
+         snprintf(template, sizeof(template) / sizeof(char), "%s/iperf3.XXXXXX", tempdir);
+     }
+-- 
+2.20.1
+
